@@ -5,13 +5,10 @@
             Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
         -->
     <!-- -->
-    <div class="sidebar-wrapper" id="style-3">
+    <div class="sidebar-wrapper bg-pictalio" id="style-3">
       <div class="logo">
         <a href="#" class="simple-text">
-            <div class="logo-img">
-                <img src="static/img/vue-logo.png" alt="">
-            </div>
-          Paper Dashboard
+          <span class="logo-text"><u class="logo-before">PIC</u>TALIO</span>
         </a>
       </div>
       <slot>

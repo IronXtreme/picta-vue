@@ -49,25 +49,19 @@
     .simple-text {
       padding: $padding-small-vertical $padding-zero;
       display: block;
-      font-size: $font-size-base;
+      font-size: $font-size-large;
       text-align: center;
       font-weight: $font-weight-bold;
       line-height: 40px;
-      text-align: left;
 
-      .logo-img{
-          width: 40px;
-          display: inline-block;
-          height: 40px;
-          margin-left: 0px;
-          margin-right: 10px;
-          background: white;
-          border-radius: 40px;
+      .logo-text {
+          color: black;
+          font-size: $font-size-h2;
           text-align: center;
 
-        img{
-            max-width: 21px;
-        }
+          .logo-before {
+              color: $pictalio;
+          }
       }
     }
   }

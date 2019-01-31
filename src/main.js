@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import vClickOutside from 'v-click-outside'
 
@@ -18,6 +19,7 @@ import './assets/sass/paper-dashboard.scss'
 import 'es6-promise/auto'
 
 // plugin setup
+Vue.use(Vuex)
 Vue.use(VueRouter)
 Vue.use(GlobalComponents)
 Vue.use(vClickOutside)
@@ -30,6 +32,23 @@ const router = new VueRouter({
   linkActiveClass: 'active'
 })
 
+// configure store
+const store = new Vuex.Store({
+  state: {
+    count: 0,
+    userToken: localStorage.getItem('userToken'),
+    user: {}
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    }
+  },
+  getters: {
+    isLoggedIn: state => !!state.userToken
+  }
+})
+
 // global library setup
 Object.defineProperty(Vue.prototype, '$Chartist', {
   get () {
@@ -38,8 +57,9 @@ Object.defineProperty(Vue.prototype, '$Chartist', {
 })
 
 /* eslint-disable no-new */
-new Vue({
+const app = new Vue({
   el: '#app',
+  store,
   render: h => h(App),
   router,
   data: {

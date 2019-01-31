@@ -74,7 +74,6 @@
         margin: 10px 0px;
         padding-left: 25px;
         padding-right: 25px;
-
         opacity: .7;
       }
 
@@ -129,6 +128,9 @@
   &[data-background-color="darkblue"] {
     @include sidebar-background-color($darkblue-background-color, $white-color);
   }
+  &[data-background-color="pictalio"] {
+    @include sidebar-background-color($bg-pictalio, $pictalio);
+  }
 
   &[data-active-color="primary"] {
     @include sidebar-active-color($primary-color);
@@ -144,6 +146,9 @@
   }
   &[data-active-color="danger"] {
     @include sidebar-active-color($danger-color);
+  }
+  &[data-active-color="white"] {
+    @include sidebar-active-color($white-color);
   }
 
 }

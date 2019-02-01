@@ -6,37 +6,44 @@ const SidebarStore = {
     {
       name: 'Acceuil',
       icon: 'ti-panel',
-      path: '/admin/overview'
+      path: '/admin/overview',
+      logged: false
     },
     {
       name: 'User Profile',
       icon: 'ti-user',
-      path: '/admin/stats'
+      path: '/admin/stats',
+      logged: true
     },
     {
       name: 'Table List',
       icon: 'ti-view-list-alt',
-      path: '/admin/table-list'
+      path: '/admin/table-list',
+      logged: false
     },
     {
       name: 'Typography',
       icon: 'ti-text',
-      path: '/admin/typography'
+      path: '/admin/typography',
+      logged: false
     },
     {
       name: 'Icons',
       icon: 'ti-pencil-alt2',
-      path: '/admin/icons'
+      path: '/admin/icons',
+      logged: false
     },
     {
       name: 'Maps',
       icon: 'ti-map',
-      path: '/admin/maps'
+      path: '/admin/maps',
+      logged: false
     },
     {
       name: 'Notifications',
       icon: 'ti-bell',
-      path: '/admin/notifications'
+      path: '/admin/notifications',
+      logged: true
     }
   ],
   displaySidebar (value) {

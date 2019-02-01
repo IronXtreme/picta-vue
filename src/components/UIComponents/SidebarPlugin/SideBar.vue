@@ -16,7 +16,7 @@
       </slot>
       <ul :class="navClasses">
         <!--By default vue-router adds an active class to each route link. This way the links are colored when clicked-->
-        <router-link v-for="(link,index) in sidebarLinks" :to="link.path" tag="li" :ref="link.name">
+        <router-link v-for="(link,index) in sidebarLinks" :to="link.path" tag="li" :ref="link.name" v-if="!link.logged || (link.logged && $store.getters.isLoggedIn)">
           <a class="sidebar-link">
             <i :class="link.icon"></i>
 

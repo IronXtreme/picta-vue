@@ -36,7 +36,7 @@ const router = new VueRouter({
 const store = new Vuex.Store({
   state: {
     count: 0,
-    userToken: localStorage.getItem('userToken'),
+    userToken: localStorage.getItem('userToken') || '',
     user: {}
   },
   mutations: {
@@ -57,7 +57,7 @@ Object.defineProperty(Vue.prototype, '$Chartist', {
 })
 
 /* eslint-disable no-new */
-const app = new Vue({
+new Vue({
   el: '#app',
   store,
   render: h => h(App),

@@ -9,7 +9,16 @@
   </div>
 </template>
 <script>
-  export default {}
+  export default {
+    name: 'HomePage',
+
+    data () {
+      return {
+        loading: true,
+        feed: []
+      }
+    }
+  }
 </script>
 <style>
   .fade-enter-active,

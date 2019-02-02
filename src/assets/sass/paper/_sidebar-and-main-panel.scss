@@ -129,7 +129,7 @@
     @include sidebar-background-color($darkblue-background-color, $white-color);
   }
   &[data-background-color="pictalio"] {
-    @include sidebar-background-color($bg-pictalio, $pictalio);
+    @include sidebar-background-color($pictalio, $white-color);
   }
 
   &[data-active-color="primary"] {

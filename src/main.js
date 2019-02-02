@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import vClickOutside from 'v-click-outside'
 import axios from 'axios'
+import { store } from 'store/store'
 
 // Plugins
 import GlobalComponents from './gloablComponents'
@@ -20,7 +20,6 @@ import './assets/sass/paper-dashboard.scss'
 import 'es6-promise/auto'
 
 // plugin setup
-Vue.use(Vuex)
 Vue.use(VueRouter)
 Vue.use(GlobalComponents)
 Vue.use(vClickOutside)
@@ -31,23 +30,6 @@ Vue.use(SideBar)
 const router = new VueRouter({
   routes, // short for routes: routes
   linkActiveClass: 'active'
-})
-
-// configure store
-const store = new Vuex.Store({
-  state: {
-    count: 0,
-    userToken: localStorage.getItem('userToken') || '',
-    user: {}
-  },
-  mutations: {
-    increment (state) {
-      state.count++
-    }
-  },
-  getters: {
-    isLoggedIn: state => !!state.userToken
-  }
 })
 
 // global library setup

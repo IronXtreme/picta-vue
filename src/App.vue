@@ -32,7 +32,17 @@
 </template>
 
 <script>
-  export default {}
+  export default {
+    methods: {
+      getActiveSidebarLinks () {
+        this.$sidebar.getActiveSidebarLinks()
+      }
+    },
+    beforeMount () {
+      this.getActiveSidebarLinks()
+    }
+  }
+
 </script>
 
 <style lang="scss"></style>

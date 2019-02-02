@@ -1,4 +1,5 @@
 import Sidebar from './SideBar.vue'
+import { store } from '../../../store/store'
 
 const SidebarStore = {
   showSidebar: false,
@@ -46,6 +47,20 @@ const SidebarStore = {
       logged: true
     }
   ],
+  getActiveSidebarLinks () {
+    var indexToSplice = []
+    this.sidebarLinks.find((element, index) => {
+      console.log(element)
+
+      if (element.logged && !store.getters.isLoggedIn) {
+        indexToSplice.push(index)
+      }
+    })
+
+    indexToSplice.find((element, index) => {
+      this.sidebarLinks.splice(element, 1)
+    })
+  },
   displaySidebar (value) {
     this.showSidebar = value
   }

@@ -24,6 +24,7 @@
   import TopNavbar from './TopNavbar.vue'
   import ContentFooter from './ContentFooter.vue'
   import DashboardContent from './Content.vue'
+
   export default {
     components: {
       TopNavbar,
@@ -35,7 +36,13 @@
         if (this.$sidebar.showSidebar) {
           this.$sidebar.displaySidebar(false)
         }
+      },
+      getActiveSidebarLinks () {
+        this.$sidebar.getActiveSidebarLinks()
       }
+    },
+    beforeMount () {
+      this.getActiveSidebarLinks()
     }
   }
 

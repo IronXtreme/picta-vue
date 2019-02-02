@@ -7,7 +7,18 @@ export const store = new Vuex.Store({
   state: {
     count: 0,
     userToken: localStorage.getItem('userToken') || '',
-    user: {}
+    user: {
+      id: '',
+      name: '',
+      email: '',
+      username: '',
+      emailIsConfirmed: '',
+      phone: '',
+      phoneIsConfirmed: ''
+    },
+    cart: {
+      id: ''
+    }
   },
   mutations: {
     increment (state) {

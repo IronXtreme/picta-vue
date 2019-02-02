@@ -55,12 +55,12 @@
       line-height: 40px;
 
       .logo-text {
-          color: black;
+          color: $black-color;
           font-size: $font-size-h2;
           text-align: center;
 
           .logo-before {
-              color: $pictalio;
+              color: $white-color;
           }
       }
     }

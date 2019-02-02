@@ -44,7 +44,7 @@ const SidebarStore = {
       name: 'Notifications',
       icon: 'ti-bell',
       path: '/admin/notifications',
-      logged: true
+      logged: false
     }
   ],
   getActiveSidebarLinks () {

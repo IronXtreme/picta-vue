@@ -9,9 +9,7 @@ export default {
           store.state.cart = response
         }
 
-        if (undefined !== response.message) {
-          return response.message
-        }
+        return response.status === 200
       }).catch(error => console.log(error))
   },
   getTrending (payload) {
@@ -21,9 +19,7 @@ export default {
           store.state.cart = response
         }
 
-        if (undefined !== response.message) {
-          return response.message
-        }
+        return response.status === 200
       }).catch(error => console.log(error))
   },
   getLatest (payload) {
@@ -33,9 +29,7 @@ export default {
           store.state.cart = response
         }
 
-        if (undefined !== response.message) {
-          return response.message
-        }
+        return response.status === 200
       }).catch(error => console.log(error))
   }
 }

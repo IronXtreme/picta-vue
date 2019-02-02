@@ -17,7 +17,17 @@ export const store = new Vuex.Store({
       phoneIsConfirmed: ''
     },
     cart: {
-      id: ''
+      items: {
+        id: '',
+        userId: '',
+        authorId: '',
+        tite: '',
+        description: '',
+        location: '',
+        postedAt: '',
+        priceIT: '',
+        priceExcT: ''
+      }
     }
   },
   mutations: {

@@ -5,19 +5,25 @@ export default {
   get () {
     return axios.get('/api/cart/Get')
       .then(response => {
-        return response
+        store.state.cart = response
+
+        return response.status === 200
       }).catch(error => console.log(error))
   },
   addItemToCart (payload) {
     return axios.post('/api/cart/AddItemToCart', payload)
       .then(response => {
-        return response
+        store.state.cart = response
+
+        return response.status === 200
       }).catch(error => console.log(error))
   },
   removeItemFromCart (payload) {
-    return axios.get('/api/cart/RemoveItemFromCart')
+    return axios.post('/api/cart/RemoveItemFromCart', payload)
       .then(response => {
-        return response
+        store.state.cart = response
+
+        return response.status === 200
       }).catch(error => console.log(error))
   }
 }

@@ -14,14 +14,14 @@ export default {
         if (undefined !== response.userId) {
           store.state.user.id = response.userId
         }
+
+        return response.status === 200
       }).catch(error => console.log(error))
   },
   signUp (payload) {
     return axios.post('/api/account/SignUp', payload)
       .then(response => {
-        if (undefined !== response.email) {
-          return response.email
-        }
+        return response.status === 200
       }).catch(error => console.log(error))
   },
   signOut () {

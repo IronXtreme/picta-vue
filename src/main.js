@@ -40,7 +40,7 @@ Object.defineProperty(Vue.prototype, '$Chartist', {
 })
 
 // axios config
-axios.defaults.baseURL = 'http://pictalio-dev.azurewebsites.net'
+axios.defaults.baseURL = 'http://localhost:5000'// http://pictalio-dev.azurewebsites.net'
 axios.defaults.headers = {
   'Content-Type': 'application/json',
   'Authorization': store.state.userToken

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import vClickOutside from 'v-click-outside'
+import axios from 'axios'
 
 // Plugins
 import GlobalComponents from './gloablComponents'
@@ -55,6 +56,9 @@ Object.defineProperty(Vue.prototype, '$Chartist', {
     return this.$root.Chartist
   }
 })
+
+// axios config
+axios.defaults.baseURL = ''
 
 /* eslint-disable no-new */
 new Vue({

@@ -19,6 +19,24 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col-xs-12">
+        <slide-card>
+
+        </slide-card>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <slide-card>
+
+        </slide-card>
+
+      </div>
+    </div>
+
     <!--Charts-->
     <div class="row">
 
@@ -70,10 +88,13 @@
 <script>
   import StatsCard from 'components/UIComponents/Cards/StatsCard.vue'
   import ChartCard from 'components/UIComponents/Cards/ChartCard.vue'
+  import SlideCard from 'components/UIComponents/Cards/SlideCard.vue'
+
   export default {
     components: {
       StatsCard,
-      ChartCard
+      ChartCard,
+      SlideCard
     },
     /**
      * Chart data used to render stats, charts. Should be replaced with server data

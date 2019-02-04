@@ -3,25 +3,13 @@
     <div class="header">
       <slot name="title"></slot>
       <p class="category">
-        <slot name="subTitle"></slot>
+        <slot>{{ sliderTitle }}</slot>
       </p>
     </div>
     <div class="content">
       <hooper :itemsToShow="3" :infiniteScroll="true" :autoPlay="true" :playSpeed="2000">
-        <slide>
-          <img src="http://domainedesfinets.fr/v2/wp-content/uploads/2014/05/Les-Ocres-500x200.jpg" alt="test">
-        </slide>
-        <slide>
-          <img src="http://ekladata.com/2mnuNiaJzGojoYYOlhFURVpgJ0A@500x200.jpg" alt="test">
-        </slide>
-        <slide>
-          <img src="http://www.tangram-architectes.com/wp-content/uploads/2018/11/18.09-Groupe-Scolaire-Simone-Veil-Vue-rue-07-%C2%A9SOImages-projet-500x200.jpg" alt="test">
-        </slide>
-        <slide>
-          <img src="http://a54.idata.over-blog.com/500x247/2/14/41/49/slg-paysage/maisons-eclusieres/120908Frise-APS.jpg" alt="test">
-        </slide>
-        <slide>
-          <img src="http://delapaztur.tur.ar/test/wp-content/uploads/2018/08/banner-2-2-500x200.jpg" alt="test">
+        <slide v-for="slide in slides">
+          <img :src="slide.path" :alt="slide.title">
         </slide>
         <hooper-pagination slot="hooper-addons"></hooper-pagination>
       </hooper>
@@ -32,6 +20,7 @@
 <script>
   import { Hooper, Slide, Navigation as HooperNavigation, Pagination as HooperPagination } from 'hooper'
   import '../../../../node_modules/hooper/dist/hooper.css'
+  import FeedApi from '../../../services/api/Feed'
 
   export default {
     name: 'slide-card',
@@ -39,30 +28,91 @@
       Hooper,
       Slide,
       HooperNavigation,
-      HooperPagination
+      HooperPagination,
+      FeedApi
+    },
+    data () {
+      return {
+        slides: [],
+        sliderTitle: ''
+      }
     },
     props: {
-      headerTitle: {
+      sliderTitle: {
         type: String,
-        default: 'Slide title'
+        default: ''
+      },
+      sliderType: {
+        type: String,
+        default: ''
       },
       slideOptions: {
         type: Object,
         default: () => {
           return {}
         }
-      },
-      slideData: {
-        type: Object,
-        default: () => {
-          return {
-          }
-        }
       }
     },
-    data () {
-      return {
+    methods: {
+      getSlides: function () {
+        // this.slides = FeedApi.getSlides()
+        this.slides = [
+          {
+            id: 1,
+            title: 'test image 4',
+            path: 'https://images-eu.ssl-images-amazon.com/images/I/517n-QOI5iL._AC_US200_.jpg'
+          },
+          {
+            id: 2,
+            title: 'test image 2',
+            path: 'https://images-eu.ssl-images-amazon.com/images/I/512jHfHnwfL._AC_US200_.jpg'
+          },
+          {
+            id: 3,
+            title: 'test image 1',
+            path: 'http://domainedesfinets.fr/v2/wp-content/uploads/2014/05/Les-Ocres-500x200.jpg'
+          }
+        ]
+      },
+      getTrendingSlides: function () {
+        // this.trendingSlides = FeedApi.getTrendingSlides()
+        this.slides = []
+      },
+      getLatestSlides: function () {
+        // this.latestSlides = FeedApi.getLatestSlides()
+        this.slides = [
+          {
+            id: 1,
+            title: 'test image 1',
+            path: 'https://images-eu.ssl-images-amazon.com/images/I/517n-QOI5iL._AC_US200_.jpg'
+          },
+          {
+            id: 2,
+            title: 'test image 2',
+            path: 'https://images-eu.ssl-images-amazon.com/images/I/512jHfHnwfL._AC_US200_.jpg'
+          },
+          {
+            id: 3,
+            title: 'test image 3',
+            path: 'http://domainedesfinets.fr/v2/wp-content/uploads/2014/05/Les-Ocres-500x200.jpg'
+          }
+        ]
       }
+    },
+    beforeMount: function () {
+      let vm = this
+      switch (vm.sliderType) {
+        case 'trending':
+          this.getTrendingSlides()
+          break
+        case 'latest':
+          this.getLatestSlides()
+          break
+        default:
+          this.getSlides()
+      }
+
+      this.sliderTitle = vm.sliderTitle
     }
   }
 </script>

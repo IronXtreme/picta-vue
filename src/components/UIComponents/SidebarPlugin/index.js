@@ -11,6 +11,18 @@ const SidebarStore = {
       logged: false
     },
     {
+      name: 'Panier',
+      icon: 'ti-shopping-cart',
+      path: '/admin/notifications',
+      logged: false
+    },
+    {
+      name: "S'enregistrer",
+      icon: 'ti-user',
+      path: '/admin/notifications',
+      logged: false
+    },
+    {
       name: 'User Profile',
       icon: 'ti-user',
       path: '/admin/stats',
@@ -20,31 +32,31 @@ const SidebarStore = {
       name: 'Table List',
       icon: 'ti-view-list-alt',
       path: '/admin/table-list',
-      logged: false
+      logged: true
     },
     {
       name: 'Typography',
       icon: 'ti-text',
       path: '/admin/typography',
-      logged: false
+      logged: true
     },
     {
       name: 'Icons',
       icon: 'ti-pencil-alt2',
       path: '/admin/icons',
-      logged: false
+      logged: true
     },
     {
       name: 'Maps',
       icon: 'ti-map',
       path: '/admin/maps',
-      logged: false
+      logged: true
     },
     {
       name: 'Notifications',
       icon: 'ti-bell',
       path: '/admin/notifications',
-      logged: false
+      logged: true
     }
   ],
   getActiveSidebarLinks () {

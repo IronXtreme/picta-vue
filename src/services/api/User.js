@@ -1,12 +1,8 @@
 import axios from 'axios'
-import { store } from '../../store/store'
 
 export default {
   getUser () {
     return axios.get('/api/account/GetMyInformations')
-      .then(response => {
-        return response.status === 200
-      }).catch(error => console.log(error))
   },
   updateUser (payload) {
     return axios.post('/api/account/UpdateUser', payload)

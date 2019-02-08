@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { store } from '../../store/store'
 import UserApi from './User'
+import { HTTP } from './Config'
 
 export default {
   signIn (payload) {
@@ -19,7 +20,8 @@ export default {
       }).catch(error => console.log(error))
   },
   signUp (payload) {
-    return axios.post('/api/account/SignUp', JSON.stringify(payload))
+    console.log(JSON.stringify(payload))
+    return HTTP.post('/api/account/SignUp', JSON.stringify(payload))
   },
   signOut () {
     store.state.userToken = ''

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import vClickOutside from 'v-click-outside'
-import axios from 'axios'
 import { store } from 'store/store'
 
 // Plugins
@@ -40,11 +39,15 @@ Object.defineProperty(Vue.prototype, '$Chartist', {
 })
 
 // axios config
-axios.defaults.baseURL = 'http://localhost:5000'// http://pictalio-dev.azurewebsites.net'
+
+/* axios.defaults.baseURL = 'https://pictalio-dev.azurewebsites.net' // 'http://localhost:5000' or 'https://pictalio-dev.azurewebsites.net'
 axios.defaults.headers = {
   'Content-Type': 'application/json',
-  'Authorization': store.state.userToken
-}
+  'Authorization': store.state.userToken,
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Credentials': true,
+  'Access-Control-Allow-Headers': '*'
+} */
 
 /* eslint-disable no-new */
 new Vue({

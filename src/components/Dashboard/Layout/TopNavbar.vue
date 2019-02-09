@@ -11,6 +11,7 @@
         <a class="navbar-brand">{{routeName}}</a>
       </div>
       <div class="navbar-right-menu">
+        <input type="password" class="form-control" placeholder="mot de passe" name="password">
         <ul class="nav navbar-nav navbar-right">
           <li class="open">
             <a href="#" class="dropdown-toggle btn-magnify" data-toggle="dropdown">
@@ -19,7 +20,19 @@
             </a>
           </li>
              <drop-down title="S'identifier" icon="ti-user">
-               <li><a href="#"></a></li>
+               <li style="width: 300px;">
+                 <div class="input-group">
+                   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                   <input v-model="username" id="email" type="text" class="form-control" name="email" placeholder="Email">
+                 </div>
+                 <div class="input-group">
+                   <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                   <input id="password" v-model="password" type="password" class="form-control" name="password" placeholder="Password">
+                 </div>
+                 <!--<a href="#" @click="testSignUp()">SignUp Test</a>
+                 <a href="#" @click="testSignIn()">Sign in</a>-->
+                 <button class="btn" style="width: 100%; border-radius: 0;" type="button" id="login" @click="testSignIn(this)">Connexion</button>
+               </li>
              </drop-down>
         </ul>
       </div>
@@ -40,6 +53,8 @@
     },
     data () {
       return {
+        username: '',
+        password: '',
         activeNotifications: false
       }
     },
@@ -76,8 +91,8 @@
       },
       testSignIn () {
         let authObject = {
-          email: 'thomaslavigne47555@gmail.com',
-          password: 'ceciestuntest33'
+          email: this.username,
+          password: this.password
         }
         AuthenticationApi.signIn(authObject)
           .then(response => {

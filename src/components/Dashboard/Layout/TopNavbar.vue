@@ -11,7 +11,6 @@
         <a class="navbar-brand">{{routeName}}</a>
       </div>
       <div class="navbar-right-menu">
-        <input type="password" class="form-control" placeholder="mot de passe" name="password">
         <ul class="nav navbar-nav navbar-right">
           <li class="open">
             <a href="#" class="dropdown-toggle btn-magnify" data-toggle="dropdown">
@@ -29,9 +28,7 @@
                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                    <input id="password" v-model="password" type="password" class="form-control" name="password" placeholder="Password">
                  </div>
-                 <!--<a href="#" @click="testSignUp()">SignUp Test</a>
-                 <a href="#" @click="testSignIn()">Sign in</a>-->
-                 <button class="btn" style="width: 100%; border-radius: 0;" type="button" id="login" @click="testSignIn(this)">Connexion</button>
+                 <button class="btn" style="width: 100%; border-radius: 0;" type="button" id="login" @click="signIn()">Connexion</button>
                </li>
              </drop-down>
         </ul>
@@ -89,7 +86,7 @@
             console.log(response)
           }).catch(error => console.log(error))
       },
-      testSignIn () {
+      signIn () {
         let authObject = {
           email: this.username,
           password: this.password

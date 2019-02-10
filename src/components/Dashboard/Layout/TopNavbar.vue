@@ -109,6 +109,26 @@
           password: this.password
         }
         AuthenticationApi.signIn(authObject)
+          .then(response => {
+            this.$notifications.notify(
+              {
+                message: 'Bonjour ' + this.username + '. Vous êtes bien connecté(e).',
+                icon: 'ti-thumb-up',
+                horizontalAlign: 'center',
+                verticalAlign: 'top',
+                type: 'success'
+              })
+          }).catch(error => {
+            this.$notifications.notify(
+              {
+                message: 'Vos identifiants sont incorrects.',
+                icon: 'ti-thumb-down',
+                horizontalAlign: 'center',
+                verticalAlign: 'top',
+                type: 'danger'
+              })
+            console.log(error)
+          })
       },
       signOut () {
         AuthenticationApi.signOut()

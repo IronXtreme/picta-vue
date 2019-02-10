@@ -112,8 +112,27 @@
         this.user.birth = date.getDay().toString() + '/' + date.getMonth().toString() + '/' + date.getFullYear().toString()
         AuthenticationApi.signUp(this.user)
           .then(response => {
-            console.log(response)
-          }).catch(error => console.log(error))
+            this.$notifications.notify(
+              {
+                message: 'La création de votre compte a bien été enregistré. Veuillez le validé à l\'adresse suivante : ' + this.user.email,
+                icon: 'ti-thumb-up',
+                horizontalAlign: 'center',
+                verticalAlign: 'top',
+                type: 'success'
+              })
+
+            this.$router.push('/')
+          }).catch(error => {
+            this.$notifications.notify(
+              {
+                message: 'Une erreur interne s\'est produite. Veuillez réessayer ultérieurement.',
+                icon: 'ti-thumb-down',
+                horizontalAlign: 'center',
+                verticalAlign: 'top',
+                type: 'danger'
+              })
+            console.log(error)
+          })
       }
     }
   }

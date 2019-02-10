@@ -1,6 +1,7 @@
 import Sidebar from './SideBar.vue'
 import { store } from '../../../store/store'
 
+// TODO Créer une enum pour definir l'etat d'affiche d'un link dans la sidebar -> Tout le temps, Seulement quand connecté, Seulement quand déconnecté
 const SidebarStore = {
   showSidebar: false,
   sidebarLinks: [

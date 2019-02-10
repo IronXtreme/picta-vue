@@ -87,7 +87,7 @@
        * @returns {{transform: string}}
        */
       arrowMovePx () {
-        return this.linkHeight * this.activeLinkIndex
+        return 7 + this.linkHeight * this.activeLinkIndex
       }
     },
     data () {

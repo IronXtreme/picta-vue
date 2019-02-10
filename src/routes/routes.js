@@ -10,6 +10,7 @@ import Icons from 'src/components/Dashboard/Views/Icons.vue'
 import Maps from 'src/components/Dashboard/Views/Maps.vue'
 import Typography from 'src/components/Dashboard/Views/Typography.vue'
 import TableList from 'src/components/Dashboard/Views/TableList.vue'
+import SignUp from '../components/Dashboard/Views/SignUp'
 
 const routes = [
   {
@@ -20,7 +21,7 @@ const routes = [
   {
     path: '/admin',
     component: DashboardLayout,
-    redirect: '/admin/stats',
+    redirect: '/admin/profile',
     children: [
       {
         path: 'overview',
@@ -28,8 +29,13 @@ const routes = [
         component: Overview
       },
       {
-        path: 'stats',
-        name: 'stats',
+        path: 'signup',
+        name: 'Créer un compte',
+        component: SignUp
+      },
+      {
+        path: 'profile',
+        name: 'profile',
         component: UserProfile
       },
       {

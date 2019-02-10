@@ -1,6 +1,6 @@
 <template>
-  <li class="dropdown" :class="{open:isOpen}" @click="toggleDropDown">
-    <a class="dropdown-toggle btn-rotate" data-toggle="dropdown" >
+  <li class="dropdown" :class="{open:isOpen}">
+    <a class="dropdown-toggle btn-rotate" data-toggle="dropdown" @click="toggleDropDown">
       <slot name="title">
         <i :class="icon"></i>
         <p class="notification">{{title}}

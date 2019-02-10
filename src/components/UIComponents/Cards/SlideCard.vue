@@ -57,12 +57,10 @@
   import { Hooper, Slide, Navigation as HooperNavigation, Pagination as HooperPagination } from 'hooper'
   import '../../../../node_modules/hooper/dist/hooper.css'
   import '../../../../src/assets/sass/paper/_modal-images.scss'
-  import ImageDetails from '../Images/ImageDetails'
 
   export default {
     name: 'slide-card',
     components: {
-      ImageDetails,
       Hooper,
       Slide,
       HooperNavigation,

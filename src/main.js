@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import vClickOutside from 'v-click-outside'
 import { store } from 'store/store'
+import axios from 'axios'
 
 // Plugins
 import GlobalComponents from './gloablComponents'
@@ -30,6 +31,12 @@ const router = new VueRouter({
   routes, // short for routes: routes
   linkActiveClass: 'active'
 })
+
+// axios setup
+axios.defaults.baseURL = `http://localhost:5000` // 'http://localhost:5000' or 'https://pictalio-dev.azurewebsites.net'
+axios.defaults.headers = {
+  'Content-Type': 'application/json'
+}
 
 // global library setup
 Object.defineProperty(Vue.prototype, '$Chartist', {

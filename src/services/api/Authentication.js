@@ -1,27 +1,25 @@
-import axios from 'axios'
 import { store } from '../../store/store'
 import UserApi from './User'
-import { HTTP } from './Config'
+import axios from 'axios'
 
 export default {
   signIn (payload) {
     return axios.post('/api/account/Login', JSON.stringify(payload))
       .then(response => {
-        if (undefined !== response.jwTtoken) {
-          store.state.userToken = response.jwTtoken
+        if (undefined !== response.data.jwTtoken) {
+          store.state.userToken = response.data.jwTtoken
+          axios.defaults.headers.Authorization = response.data.jwTtoken
         }
 
-        store.state.user = UserApi.getUser()
+        UserApi.getUser()
           .then(response => {
-            if (undefined !== response.userId) {
-              store.state.user.id = response.userId
-            }
+            store.state.user = response.data
           }).catch(error => console.log(error))
       }).catch(error => console.log(error))
   },
   signUp (payload) {
     console.log(JSON.stringify(payload))
-    return HTTP.post('/api/account/SignUp', JSON.stringify(payload))
+    return axios.post('/api/account/SignUp', JSON.stringify(payload))
   },
   signOut () {
     store.state.userToken = ''
@@ -34,5 +32,6 @@ export default {
       phone: '',
       phoneIsConfirmed: ''
     }
+    axios.defaults.headers.Authorization = ''
   }
 }

@@ -19,16 +19,21 @@
             </a>
           </li>
              <drop-down title="S'identifier" icon="ti-user">
-               <li style="width: 300px;">
-                 <div class="input-group">
-                   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                   <input v-model="username" id="email" type="text" class="form-control" name="email" placeholder="Email">
-                 </div>
-                 <div class="input-group">
-                   <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                   <input id="password" v-model="password" type="password" class="form-control" name="password" placeholder="Password">
-                 </div>
-                 <button class="btn" style="width: 100%; border-radius: 0;" type="button" id="login" @click="signIn()">Connexion</button>
+               <li class="login">
+                 <form v-on:submit.prevent="signIn()">
+                   <div class="input-group">
+                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                     <input v-model="username" id="email" type="email" class="form-control" name="email" placeholder="Email">
+                   </div>
+                   <div class="input-group">
+                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                     <input id="password" v-model="password" type="password" class="form-control" name="password" placeholder="Password">
+                   </div>
+                   <button class="btn" type="submit">Connexion</button>
+                 </form>
+               </li>
+               <li>
+                 <a class="text-center" href="#">Créer un nouveau compte</a>
                </li>
              </drop-down>
         </ul>
@@ -73,8 +78,8 @@
       },
       testSignUp () {
         let authObject = {
-          email: 'thomaslavigne4755555@gmail.com',
-          password: 'ceciestuntest333',
+          email: 'thomaslavigne47555@gmail.com',
+          password: 'ceciestuntest33',
           confirmPassword: 'ceciestuntest333',
           firstName: 'Thomas',
           lastName: 'Lavigne',
@@ -93,7 +98,6 @@
         }
         AuthenticationApi.signIn(authObject)
           .then(response => {
-            console.log(response)
           }).catch(error => console.log(error))
       }
     }

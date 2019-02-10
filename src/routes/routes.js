@@ -24,7 +24,7 @@ const routes = [
     children: [
       {
         path: 'overview',
-        name: 'overview',
+        name: 'accueil',
         component: Overview
       },
       {

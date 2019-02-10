@@ -36,12 +36,15 @@
     font-size: $font-size-small;
     margin: 0;
   }
+
   .category,
   label {
     font-size: $font-size-base;
     font-weight: $font-weight-normal;
-    color: $dark-gray;
+    color: $pictalio;
     margin-bottom: 0px;
+    font-size: 2.5em !important;
+    text-decoration: underline;
     i {
       font-size: $font-paragraph;
     }

@@ -24,7 +24,7 @@
             </fg-input>
           </div>
           <div class="col-md-4">
-            <fg-input type="test"
+            <fg-input type="text"
                       label="Nom *"
                       required="true"
                       placeholder="Nom"

@@ -26,7 +26,7 @@ export default {
       id: '',
       name: '',
       email: '',
-      username: '',
+      userName: '',
       emailIsConfirmed: '',
       phone: '',
       phoneIsConfirmed: ''

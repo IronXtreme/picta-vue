@@ -88,21 +88,6 @@
       hideSidebar () {
         this.$sidebar.displaySidebar(false)
       },
-      testSignUp () {
-        let authObject = {
-          email: 'thomaslavigne47555@gmail.com',
-          password: 'ceciestuntest33',
-          confirmPassword: 'ceciestuntest333',
-          firstName: 'Thomas',
-          lastName: 'Lavigne',
-          phoneNumber: '0781707140',
-          birth: '02/12/1997'
-        }
-        AuthenticationApi.signUp(authObject)
-          .then(response => {
-            console.log(response)
-          }).catch(error => console.log(error))
-      },
       signIn () {
         let authObject = {
           email: this.username,

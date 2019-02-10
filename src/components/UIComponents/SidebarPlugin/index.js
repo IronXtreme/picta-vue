@@ -17,9 +17,9 @@ const SidebarStore = {
       logged: false
     },
     {
-      name: "S'enregistrer",
+      name: 'Créer un compte',
       icon: 'ti-user',
-      path: '/admin/notifications',
+      path: '/admin/signup',
       logged: false
     },
     {

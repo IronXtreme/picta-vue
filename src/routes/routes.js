@@ -10,6 +10,7 @@ import Icons from 'src/components/Dashboard/Views/Icons.vue'
 import Maps from 'src/components/Dashboard/Views/Maps.vue'
 import Typography from 'src/components/Dashboard/Views/Typography.vue'
 import TableList from 'src/components/Dashboard/Views/TableList.vue'
+import SignUp from '../components/Dashboard/Views/SignUp'
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
         path: 'overview',
         name: 'accueil',
         component: Overview
+      },
+      {
+        path: 'signup',
+        name: 'Créer un compte',
+        component: SignUp
       },
       {
         path: 'stats',

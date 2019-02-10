@@ -7,13 +7,13 @@ export default {
     return axios.post('/api/account/Login', JSON.stringify(payload))
       .then(response => {
         if (undefined !== response.data.jwTtoken) {
-          store.state.userToken = response.data.jwTtoken
+          store.commit('updateUserToken', response.data.jwTtoken)
           axios.defaults.headers.Authorization = response.data.jwTtoken
         }
 
         UserApi.getUser()
           .then(response => {
-            store.state.user = response.data
+            store.commit('updateUser', response.data)
           }).catch(error => console.log(error))
       }).catch(error => console.log(error))
   },
@@ -22,8 +22,8 @@ export default {
     return axios.post('/api/account/SignUp', JSON.stringify(payload))
   },
   signOut () {
-    store.state.userToken = ''
-    store.state.user = {
+    store.commit('updateUserToken', '')
+    store.commit('updateUser', {
       id: '',
       name: '',
       email: '',
@@ -31,7 +31,7 @@ export default {
       emailIsConfirmed: '',
       phone: '',
       phoneIsConfirmed: ''
-    }
+    })
     axios.defaults.headers.Authorization = ''
   }
 }

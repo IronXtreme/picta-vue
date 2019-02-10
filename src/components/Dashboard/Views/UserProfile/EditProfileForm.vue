@@ -108,10 +108,10 @@
   export default {
     data () {
       return {
-        user: {
+        user: { // this.$store.getters.user
           company: 'Paper Dashboard',
-          username: 'michael23',
-          email: '',
+          username: this.$store.getters.user.userName,
+          email: this.$store.getters.user.email,
           lastName: 'Faker',
           address: 'Melbourne, Australia',
           city: 'melbourne',

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
 
@@ -11,7 +12,7 @@ export const store = new Vuex.Store({
       id: '',
       name: '',
       email: '',
-      username: '',
+      userName: '',
       emailIsConfirmed: '',
       phone: '',
       phoneIsConfirmed: ''
@@ -30,12 +31,23 @@ export const store = new Vuex.Store({
       }
     }
   },
+  plugins: [createPersistedState()],
   mutations: {
     increment (state) {
       state.count++
+    },
+    updateUser (state, user) {
+      state.user = user
+    },
+    updateUserToken (state, userToken) {
+      state.userToken = userToken
+    },
+    updateCart (state, cart) {
+      state.cart = cart
     }
   },
   getters: {
-    isLoggedIn: state => !!state.userToken
+    isLoggedIn: state => !!state.userToken,
+    user: state => state.user
   }
 })

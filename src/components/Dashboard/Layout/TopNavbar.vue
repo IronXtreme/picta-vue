@@ -73,9 +73,9 @@
       },
       testSignUp () {
         let authObject = {
-          email: 'thomaslavigne47555@gmail.com',
-          password: 'ceciestuntest33',
-          confirmPassword: 'ceciestuntest33',
+          email: 'thomaslavigne4755555@gmail.com',
+          password: 'ceciestuntest333',
+          confirmPassword: 'ceciestuntest333',
           firstName: 'Thomas',
           lastName: 'Lavigne',
           phoneNumber: '0781707140',

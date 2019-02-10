@@ -38,17 +38,6 @@ Object.defineProperty(Vue.prototype, '$Chartist', {
   }
 })
 
-// axios config
-
-/* axios.defaults.baseURL = 'https://pictalio-dev.azurewebsites.net' // 'http://localhost:5000' or 'https://pictalio-dev.azurewebsites.net'
-axios.defaults.headers = {
-  'Content-Type': 'application/json',
-  'Authorization': store.state.userToken,
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Credentials': true,
-  'Access-Control-Allow-Headers': '*'
-} */
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

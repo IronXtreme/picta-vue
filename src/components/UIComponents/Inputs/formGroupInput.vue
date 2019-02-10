@@ -18,10 +18,11 @@
       name: String,
       disabled: Boolean,
       placeholder: String,
+      required: String,
+      pattern: String,
       value: [String, Number]
     }
   }
-
 </script>
 <style>
 

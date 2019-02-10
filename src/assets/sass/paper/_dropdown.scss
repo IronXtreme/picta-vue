@@ -60,16 +60,6 @@
     min-width: 100%;
   }
 
-  > li:first-child > a {
-    border-top-left-radius: $border-radius-extreme;
-    border-top-right-radius: $border-radius-extreme;
-  }
-
-  > li:last-child > a {
-    border-bottom-left-radius: $border-radius-extreme;
-    border-bottom-right-radius: $border-radius-extreme;
-  }
-
   .select & > li:first-child > a {
     border-radius: 0;
     border-bottom: 0 none;

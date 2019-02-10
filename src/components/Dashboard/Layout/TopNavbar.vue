@@ -18,7 +18,7 @@
               <p>Panier</p>
             </a>
           </li>
-             <drop-down title="S'identifier" icon="ti-user">
+             <drop-down title="S'identifier" icon="ti-user" v-if="!$store.getters.isLoggedIn">
                <li class="login">
                  <form v-on:submit.prevent="signIn()">
                    <div class="input-group">
@@ -36,6 +36,18 @@
                  <a class="text-center" href="#">Créer un nouveau compte</a>
                </li>
              </drop-down>
+            <drop-down :title="$store.getters.user.userName" icon="ti-user" v-else>
+              <li>
+                <a href="#" @click="redirectProfile()">
+                  <i class="glyphicon glyphicon-user"></i> Mon profil
+                </a>
+              </li>
+              <li>
+                <a href="#" @click="signOut()">
+                  <i class="glyphicon glyphicon-off"></i> Déconnexion
+                </a>
+              </li>
+            </drop-down>
         </ul>
       </div>
     </div>
@@ -97,8 +109,13 @@
           password: this.password
         }
         AuthenticationApi.signIn(authObject)
-          .then(response => {
-          }).catch(error => console.log(error))
+      },
+      signOut () {
+        AuthenticationApi.signOut()
+        this.$router.push('/')
+      },
+      redirectProfile () {
+        this.$router.push('profile')
       }
     }
   }

@@ -18,7 +18,6 @@ export default {
       }).catch(error => console.log(error))
   },
   signUp (payload) {
-    console.log(JSON.stringify(payload))
     return axios.post('/api/account/SignUp', JSON.stringify(payload))
   },
   signOut () {

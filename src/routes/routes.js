@@ -21,7 +21,7 @@ const routes = [
   {
     path: '/admin',
     component: DashboardLayout,
-    redirect: '/admin/stats',
+    redirect: '/admin/profile',
     children: [
       {
         path: 'overview',
@@ -34,8 +34,8 @@ const routes = [
         component: SignUp
       },
       {
-        path: 'stats',
-        name: 'stats',
+        path: 'profile',
+        name: 'profile',
         component: UserProfile
       },
       {

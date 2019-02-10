@@ -25,7 +25,7 @@ const SidebarStore = {
     {
       name: 'User Profile',
       icon: 'ti-user',
-      path: '/admin/stats',
+      path: '/admin/profile',
       logged: true
     },
     {
